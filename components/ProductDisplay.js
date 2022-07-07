@@ -82,10 +82,3 @@ app.component('product-display', {
     }
 })
 
-app.component('product-details',{
-    props:{
-        details:{
-            desc: 'Hello MAMA!'
-        }
-    }
-})
