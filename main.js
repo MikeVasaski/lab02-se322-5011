@@ -11,20 +11,32 @@ const app = Vue.createApp({
             //     { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg',quantity: 0 }
             // ],
             // selectedVariant: 0,
-            cart: 0,
+            cart: [],
+            num_cart: 0,
             premium: true
         }
     },
     methods: {
         addToCart() {
-            this.cart += 1
+            this.$emit('add-to-cart')
+        },
+        removeFromCart(){
+            this.$emit('remove-cart')
         },
         updateImage(variantImage) {
             this.image = variantImage
         },
         updateVariant(index){
             this.selectedVariant = index
+        },
+        updateCart(id){
+            this.cart.push(id)
+            this.num_cart += 1
+        },
+        removeProduct(id){
+            this.cart.splice(id,id)
         }
+
     },
     computed: {
         title(){

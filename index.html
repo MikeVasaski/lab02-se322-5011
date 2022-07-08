@@ -12,10 +12,13 @@
   <body>
     <div id="app">
       <div class="nav-bar"></div>
-      <div class="cart">Cart({{ cart }})</div>
+      <div class="cart">Cart({{ num_cart }})</div>
       <product-details :details="details"></product-details>
-      <product-display :premium="premium"></product-display>
-      
+      <product-display
+        :premium="premium"
+        @add-to-cart="updateCart"
+        @remove-cart="removeProduct"
+      ></product-display>
     </div>
 
     <!-- Import Js -->
