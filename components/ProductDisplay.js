@@ -42,6 +42,7 @@ app.component('product-display', {
 
             </div>
         </div>
+        <review-form @review-submitted="addReview"></review-form>
     </div>`,
     data(){
         return {
@@ -55,7 +56,8 @@ app.component('product-display', {
                 { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg',quantity: 0 }
             ],
             activeClass: true,
-            selectedVariant: 0
+            selectedVariant: 0,
+            reviews: []
         }
     },
     methods: {
@@ -70,6 +72,10 @@ app.component('product-display', {
         },
         updateVariant(index){
             this.selectedVariant = index
+        },
+        addReview(review){
+            this.reviews.push(review)
+            console.log(this.reviews.pop())
         },
         removeProduct(){
             this.cart.splice()
