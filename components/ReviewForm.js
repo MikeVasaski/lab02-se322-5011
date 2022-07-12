@@ -19,6 +19,7 @@ app.component('review-form', {
         </select>
 
         <input class="button" type="submit" value="Submit">
+        <h3>Would you recommend this product?</h3>
     </form>`,
     data(){
         return {
@@ -30,6 +31,10 @@ app.component('review-form', {
     },
     methods:{
         onSubmit(){
+            if (this.name === '' || this.review === '' || this.rating === null){
+                alert('Raview is incomplete. Please fill out every filed.')
+                return
+            }
             let productReview = {
                 name: this.name,
                 review: this.review,
